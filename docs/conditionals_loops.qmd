@@ -1,0 +1,77 @@
+---
+title: "Conditional statements & for loops"
+author: "J"
+format: html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+## Conditional Statements
+Task 1
+```{r}
+pm2_5 <- 151
+
+if(pm2_5 < 100) {
+  
+  print("Low to moderate risk")
+  
+} else if(pm2_5 >= 100 & pm2_5 < 150) {
+  
+  print("Unhealthy for sensitive groups")
+  
+} else
+  print("Health risk present")
+```
+
+Task 2
+```{r}
+species <- "Shrimp"
+
+if(species == "Whale") {
+  print("You found a whale!")
+} else
+  print("Look harder!")
+```
+
+Task 3
+```{r}
+base_burrito <- 6.50
+main_ingredient <- "veggie"
+
+switch (main_ingredient,
+  "veggie" = cat("$", base_burrito),
+  "chicken" = cat("$", base_burrito + 3),
+  "steak" = cat("$", base_burrito + 3.25))
+
+```
+
+## For Loop
+Task 4
+```{r}
+fish <- c(goldfish = 8, tetras = 10, guppies = 12, mollies = 23)
+totalfish <- sum(fish)
+
+for (nm in names(fish)) {
+  
+  value <- fish[nm]
+  proportionfish <- round(value / totalfish, 2)
+  cat(nm, ":", value, "|", proportionfish, "\n")
+  
+}
+```
+
+Task 5
+```{r}
+
+for(i in seq_along(month.name)) {
+  
+  cat(month.name[i], "is month", i, "\n")
+  
+}
+```
+
